@@ -50,7 +50,9 @@ public class ProductoBusinessImpl implements IProductoBusiness {
 
     @Override
     public String valorDelInventario() {
+        String respuesta = "El valor del inventario es ";
         
+        return respuesta;
     }
 
 }
