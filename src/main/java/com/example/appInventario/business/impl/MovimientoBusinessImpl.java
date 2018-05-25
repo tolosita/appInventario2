@@ -78,7 +78,8 @@ public class MovimientoBusinessImpl implements IMovimientoBusiness {
             Producto producto = productoDao.obtenerProducto(movimiento.getProducto().getIdProducto());
             Movimiento movimiento_old = movimientoDao.obtenerMovimiento(movimiento.getIdMovimiento());
             if (producto != null) {
-                if (movimiento.getTipoMovimiento().equals("Entrada")) {
+                if (movimiento_old.getTipoMovimiento().equals("Entrada")) {
+                    movimiento.setTipoMovimiento(movimiento_old.getTipoMovimiento());
                     if (movimiento.getPrecio() > 0) {
                         Double cant = ((producto.getExistencia() - movimiento_old.getCantidad()) + movimiento.getCantidad());
                         if (cant >= 0) {
@@ -93,7 +94,8 @@ public class MovimientoBusinessImpl implements IMovimientoBusiness {
                         respuesta = "El precio del Producto debe ser mayor a 0";
                     }
                 }
-                if (movimiento.getTipoMovimiento().equals("Salida")) {
+                if (movimiento_old.getTipoMovimiento().equals("Salida")) {
+                    movimiento.setTipoMovimiento(movimiento_old.getTipoMovimiento());
                     movimiento.setPrecio(0D);
                     if (movimiento.getCantidad() > 0) {
                         Double cant = ((producto.getExistencia() + movimiento_old.getCantidad()) - movimiento.getCantidad());

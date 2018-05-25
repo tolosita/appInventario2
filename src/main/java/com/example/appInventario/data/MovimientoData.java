@@ -19,9 +19,6 @@ public class MovimientoData {
 
     static {
         listado = new ArrayList<Movimiento>() {
-            {
-
-            }
         };
     }
 

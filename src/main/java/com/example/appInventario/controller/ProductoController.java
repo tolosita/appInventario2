@@ -43,4 +43,9 @@ public class ProductoController {
         return productoBusiness.modificarProducto(producto);
     }
 
+    @GetMapping("inventario")
+    public String valorDelInventario(HttpServletResponse hsr) {
+        return productoBusiness.valorDelInventario();
+    }
+
 }
