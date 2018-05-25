@@ -6,8 +6,8 @@
 package com.example.appInventario.business.impl;
 
 import com.example.appInventario.business.IProductoBusiness;
-import com.example.appInventario.dao.IMovimientoDao;
 import com.example.appInventario.dao.IProductoDao;
+import com.example.appInventario.data.MovimientoData;
 import com.example.appInventario.data.ProductoData;
 import com.example.appInventario.model.Movimiento;
 import com.example.appInventario.model.Producto;
@@ -24,9 +24,6 @@ public class ProductoBusinessImpl implements IProductoBusiness {
 
     @Autowired
     private IProductoDao productoDao;
-
-    @Autowired
-    private IMovimientoDao movimientoDao;
 
     @Override
     public List<Producto> obtenerProductos() {
@@ -58,7 +55,7 @@ public class ProductoBusinessImpl implements IProductoBusiness {
         List<Producto> listado = ProductoData.getListado();
         Double valor = 0D;
         for (Producto producto : listado) {
-            List<Movimiento> movimientos = movimientoDao.obtenerMovimientos();
+            List<Movimiento> movimientos = MovimientoData.getListado();
             Double precio = 0D;
             Double i = 0D;
             for (Movimiento movimiento : movimientos) {
