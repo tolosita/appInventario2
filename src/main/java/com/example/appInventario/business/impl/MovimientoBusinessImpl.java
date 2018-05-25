@@ -13,11 +13,13 @@ import com.example.appInventario.model.Movimiento;
 import com.example.appInventario.model.Producto;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author sala305
  */
+@Service
 public class MovimientoBusinessImpl implements IMovimientoBusiness {
 
     @Autowired

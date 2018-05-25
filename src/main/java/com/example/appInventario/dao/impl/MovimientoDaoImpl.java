@@ -10,11 +10,13 @@ import com.example.appInventario.data.MovimientoData;
 import com.example.appInventario.model.Movimiento;
 import com.example.appInventario.model.Producto;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author sala305
  */
+@Repository
 public class MovimientoDaoImpl implements IMovimientoDao {
 
     @Override
